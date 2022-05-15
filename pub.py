@@ -2,9 +2,9 @@ from paho.mqtt import client as mqtt_client
 import random
 import time
 
-broker = '192.168.24.179'
-port = 1883
-topic = "zigbee2mqtt/test/temp"
+broker = 'iotfox.ru'
+port = 21883
+topic = "zigbee2mqtt/light1"
 
 client_id = f'python-mqtt-{random.randint(0, 1000)}'
 
@@ -27,6 +27,7 @@ def publish(client):
     while True:
         time.sleep(1)
         msg = f"{msg_count}"
+        msg_count += 1
         result = client.publish(topic, msg)
 
 
